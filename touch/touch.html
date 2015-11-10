@@ -4,9 +4,6 @@
 	<title>Processing.js multi-touch event handling</title> 
 	<script type="text/javascript" src="/processing.js"></script>
 	<meta name="viewport" content="initial-scale=1,user-scalable=no" />
-
-</head> 
-<body> 
 	<style type="text/css"> 
     html, body
     {
@@ -16,30 +13,35 @@
 	</style> 
 	<script type="text/processing" data-processing-target="sketch">
 	  var touches = {};
-	void setup() {
-	  size(300, 300);
-	  background(200);
-	  stroke(0);
-	  fill(0);
-	}
 	
-	// For mouse
-	void draw() {
-	  if (mousePressed) {
-	    ellipse(mouseX, mouseY, 10, 10);
-	  }
-	}
-	
-	// For touchscreens
-	void touchStart(t) {
-	  ellipse(t.touches[0].offsetX, t.touches[0].offsetY, 10, 10);
-	}
-	
-	void touchMove(t) {
-	  ellipse(t.touches[0].offsetX, t.touches[0].offsetY, 10, 10);
-	}
-
+    void setup() {
+      size(window.innerWidth, window.innerHeight);
+      background(255);
+      noStroke(0);
+    }
+    
+    // For touchscreens
+    void touchStart(t) {
+      for (int i = 0; i < t.touches.length; i++) {
+        var id = t.touches[i].identifier;
+        if (!touches[id]) {
+          touches[id] = color(random(255), random(255), random(255));
+        }
+        fill(touches[id]);
+        ellipse(t.touches[i].offsetX, t.touches[i].offsetY, 10, 10);
+      }
+    }
+    
+    void touchMove(t) {
+      for (int i = 0; i < t.touches.length; i++) {
+        var id = t.touches[i].identifier;
+        fill(touches[id]);
+        ellipse(t.touches[i].offsetX, t.touches[i].offsetY, 10, 10);
+      }
+    }
 	</script>
+</head> 
+<body> 
 	<canvas id="sketch"></canvas> 
 </body> 
 </html> 
