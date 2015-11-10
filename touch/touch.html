@@ -85,7 +85,7 @@ void setup() {
 void draw() {
 	background(255);
 	image(image1, 80, 20, 300, 300);
-		image(image2, x , y, 300, 300);
+		image(image2, x - 500 , y -500, 300, 300);
   if (mousePressed) {
     ellipse(mouseX, mouseY, 10, 10);
   }
@@ -94,12 +94,12 @@ void draw() {
 // For touchscreens
 void touchStart(t) {
 
-  	image(image2, t.touches[0].offsetX - 500, t.touches[0].offsetY- 500,  300, 300);
+  	image(image2, t.touches[0].offsetX - 1000, t.touches[0].offsetY- 800,  300, 300);
   	
 }
 
 void touchMove(t) {
-	image(image2, t.touches[0].offsetX- 500, t.touches[0].offsetY- 500,  300, 300);
+	image(image2, t.touches[0].offsetX- 1000, t.touches[0].offsetY- 800,  300, 300);
 	x = t.touches[0].offsetX;
 	y =  t.touches[0].offsetY;
 	
