@@ -85,7 +85,7 @@ void setup() {
 void draw() {
 	background(255);
 	image(image1, 10, 10);
-		image(image2, x, y);
+		image(image2, x - image.width, y - image.height);
   if (mousePressed) {
     ellipse(mouseX, mouseY, 10, 10);
   }
