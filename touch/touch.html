@@ -66,15 +66,23 @@
 	<p>Should work on both device types without any changes to your sketch code</p>
 	<!-- copy paste your processing code below this script tag --> 
 	<script id="script" type="application/processing"> 
+	
+	PImage image1;
+	PImage image2;
 void setup() {
-  size(300, 300);
+  size(1366, 768);
   background(200);
   stroke(0);
   fill(0);
+ image1 = loadImage("http://i1093.photobucket.com/albums/i426/gyillowyy/Marker01.png");
+ image2= loadImage("http://i1093.photobucket.com/albums/i426/gyillowyy/Marker02.png");
+  
 }
 
 // For mouse
 void draw() {
+	background(255);
+	image(image1, 10, 10);
   if (mousePressed) {
     ellipse(mouseX, mouseY, 10, 10);
   }
