@@ -94,12 +94,12 @@ void draw() {
 // For touchscreens
 void touchStart(t) {
 
-  	image(image2, t.touches[0].offsetX, t.touches[0].offsetY,  300, 300);
+  	image(image2, t.touches[0].offsetX - 500, t.touches[0].offsetY- 500,  300, 300);
   	
 }
 
 void touchMove(t) {
-	image(image2, t.touches[0].offsetX, t.touches[0].offsetY,  300, 300);
+	image(image2, t.touches[0].offsetX- 500, t.touches[0].offsetY- 500,  300, 300);
 	x = t.touches[0].offsetX;
 	y =  t.touches[0].offsetY;
 	
