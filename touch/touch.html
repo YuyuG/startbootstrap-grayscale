@@ -69,6 +69,8 @@
 	
 	PImage image1;
 	PImage image2;
+	int x;
+	int y;
 void setup() {
   size(1366, 768);
   background(200);
@@ -83,6 +85,7 @@ void setup() {
 void draw() {
 	background(255);
 	image(image1, 10, 10);
+		image(image2, x, y);
   if (mousePressed) {
     ellipse(mouseX, mouseY, 10, 10);
   }
@@ -92,10 +95,14 @@ void draw() {
 void touchStart(t) {
 
   	image(image2, t.touches[0].offsetX, t.touches[0].offsetY);
+  	
 }
 
 void touchMove(t) {
 	image(image2, t.touches[0].offsetX, t.touches[0].offsetY);
+	x = t.touches[0].offsetX;
+	y =  t.touches[0].offsetY;
+	
 }
 
 	</script> 
